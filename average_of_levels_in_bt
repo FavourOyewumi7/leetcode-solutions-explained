@@ -1,0 +1,38 @@
+"""
+Thinking Process:
+
+1. check if queue is empty, if it is, return the result list
+2. add root to queue
+3. initialize count and x
+4. using a while loop traverse each level of the tree
+5. using a for loop traverse each node at the current level
+6. add the node to the count
+7. add the children to the queue to form the next level
+8. repeat process 5 to 7 until the queue is empty
+9. append the average of the current level to the result list
+10. return the result list
+"""
+
+class Solution:
+    def averageOfLevels(self, root):
+        from collections import deque
+        if root is None:
+            return
+        res = []
+        queue = deque()
+        queue.append(root)
+        while queue:
+            count = 0
+            x = 0
+            for _ in range(len(queue)):
+                x += 1
+                node = queue.popleft()
+                count += node.val
+                
+
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+            res.append(count/x)
+        return res
