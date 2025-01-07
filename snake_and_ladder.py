@@ -1,4 +1,4 @@
-    """
+"""
     algorithm  - BFS
     thought process:
     1. create a cells array conataing the position of each cell in the board in a snake and ladder game
@@ -10,7 +10,7 @@
     6. if the destination cell is not visited, then mark it as visited and add it to the queue
     7. if the destination cell is the last cell, then return the distance of the destination cell
     """
-    class Solution:
+class Solution:
         def snakesAndLadders(self, board):
             
             n = len(board)
